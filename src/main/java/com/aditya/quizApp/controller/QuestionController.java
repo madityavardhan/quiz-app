@@ -19,16 +19,19 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
+    // endpoint to get all questions
     @GetMapping("getQuestions")
     public List<Questions> getAllQuestions(){
         return questionService.getAllQuestions();
     }
 
+    // endpoint to get questions by category
     @GetMapping("category/{category}")
     public List<Questions> getQuestionsByCat(@PathVariable String category){
         return questionService.getQuestionsByCategory(category);
     }
 
+    // endpoint to add new questions
     @PostMapping("add")
     public String addQuestion(@RequestBody Questions question){
         return questionService.addQuestion(question);
